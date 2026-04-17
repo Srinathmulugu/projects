@@ -1,0 +1,177 @@
+export type DefaultProblem = {
+  id: string;
+  title: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  topic: string;
+  description: string;
+  examples: Array<{ input: string; output: string; explanation?: string }>;
+  constraints: string[];
+  hints: string[];
+  starterCode: Record<string, string>;
+  source: string;
+  sourceUrl: string;
+  testCases: Array<{ input: string; expectedOutput: string }>;
+};
+
+export const defaultProblems: DefaultProblem[] = [
+  {
+    id: 'two-sum',
+    title: 'Two Sum',
+    difficulty: 'Easy',
+    topic: 'Arrays',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.',
+    examples: [
+      { input: 'nums = [2,7,11,15], target = 9', output: '[0,1]', explanation: 'Because nums[0] + nums[1] == 9' },
+      { input: 'nums = [3,2,4], target = 6', output: '[1,2]', explanation: '' },
+    ],
+    constraints: ['2 <= nums.length <= 10^4', '-10^9 <= nums[i] <= 10^9', 'Only one valid answer exists.'],
+    hints: ['Try using a hash map to store values you have seen.', 'For each element, check if target - element exists in the map.'],
+    starterCode: {
+      javascript: 'function twoSum(nums, target) {\n  // Write your solution here\n}',
+      python: 'def twoSum(nums, target):\n    # Write your solution here\n    pass',
+      java: 'class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        // Write your solution here\n    }\n}',
+      cpp: 'class Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        // Write your solution here\n    }\n};',
+    },
+    source: 'local',
+    sourceUrl: '',
+    testCases: [],
+  },
+  {
+    id: 'valid-parentheses',
+    title: 'Valid Parentheses',
+    difficulty: 'Easy',
+    topic: 'Stacks',
+    description:
+      "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.\n\nAn input string is valid if:\n1. Open brackets must be closed by the same type of brackets.\n2. Open brackets must be closed in the correct order.\n3. Every close bracket has a corresponding open bracket of the same type.",
+    examples: [
+      { input: 's = "()"', output: 'true', explanation: '' },
+      { input: 's = "()[]{}"', output: 'true', explanation: '' },
+      { input: 's = "(]"', output: 'false', explanation: '' },
+    ],
+    constraints: ['1 <= s.length <= 10^4', "s consists of parentheses only '()[]{}'"],
+    hints: ['Use a stack.', 'Push opening brackets and pop for closing ones.'],
+    starterCode: {
+      javascript: 'function isValid(s) {\n  // Write your solution here\n}',
+      python: 'def isValid(s):\n    # Write your solution here\n    pass',
+      java: 'class Solution {\n    public boolean isValid(String s) {\n        // Write your solution here\n    }\n}',
+      cpp: 'class Solution {\npublic:\n    bool isValid(string s) {\n        // Write your solution here\n    }\n};',
+    },
+    source: 'local',
+    sourceUrl: '',
+    testCases: [],
+  },
+  {
+    id: 'reverse-linked-list',
+    title: 'Reverse Linked List',
+    difficulty: 'Easy',
+    topic: 'Linked Lists',
+    description: 'Given the head of a singly linked list, reverse the list, and return the reversed list.',
+    examples: [
+      { input: 'head = [1,2,3,4,5]', output: '[5,4,3,2,1]', explanation: '' },
+      { input: 'head = [1,2]', output: '[2,1]', explanation: '' },
+    ],
+    constraints: ['The number of nodes in the list is in the range [0, 5000].', '-5000 <= Node.val <= 5000'],
+    hints: ['Use three pointers: prev, current, next.', 'Iterate through and reverse the pointers.'],
+    starterCode: {
+      javascript: 'function reverseList(head) {\n  // Write your solution here\n}',
+      python: 'def reverseList(head):\n    # Write your solution here\n    pass',
+      java: 'class Solution {\n    public ListNode reverseList(ListNode head) {\n        // Write your solution here\n    }\n}',
+      cpp: 'class Solution {\npublic:\n    ListNode* reverseList(ListNode* head) {\n        // Write your solution here\n    }\n};',
+    },
+    source: 'local',
+    sourceUrl: '',
+    testCases: [],
+  },
+  {
+    id: 'best-time-to-buy-and-sell-stock',
+    title: 'Best Time to Buy and Sell Stock',
+    difficulty: 'Easy',
+    topic: 'Arrays',
+    description:
+      'You are given an array prices where prices[i] is the price of a given stock on the ith day.\n\nYou want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.\n\nReturn the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.',
+    examples: [
+      { input: 'prices = [7,1,5,3,6,4]', output: '5', explanation: 'Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.' },
+      { input: 'prices = [7,6,4,3,1]', output: '0', explanation: 'No transactions are done and the max profit = 0.' },
+    ],
+    constraints: ['1 <= prices.length <= 10^5', '0 <= prices[i] <= 10^4'],
+    hints: ['Track the minimum price seen so far.', 'At each step, compute profit = current price - min price.'],
+    starterCode: {
+      javascript: 'function maxProfit(prices) {\n  // Write your solution here\n}',
+      python: 'def maxProfit(prices):\n    # Write your solution here\n    pass',
+      java: 'class Solution {\n    public int maxProfit(int[] prices) {\n        // Write your solution here\n    }\n}',
+      cpp: 'class Solution {\npublic:\n    int maxProfit(vector<int>& prices) {\n        // Write your solution here\n    }\n};',
+    },
+    source: 'local',
+    sourceUrl: '',
+    testCases: [],
+  },
+  {
+    id: 'maximum-subarray',
+    title: 'Maximum Subarray',
+    difficulty: 'Medium',
+    topic: 'Arrays',
+    description: 'Given an integer array nums, find the subarray with the largest sum, and return its sum.',
+    examples: [
+      { input: 'nums = [-2,1,-3,4,-1,2,1,-5,4]', output: '6', explanation: 'The subarray [4,-1,2,1] has the largest sum 6.' },
+      { input: 'nums = [1]', output: '1', explanation: '' },
+    ],
+    constraints: ['1 <= nums.length <= 10^5', '-10^4 <= nums[i] <= 10^4'],
+    hints: ["Use Kadane's algorithm.", 'Track current sum and max sum.'],
+    starterCode: {
+      javascript: 'function maxSubArray(nums) {\n  // Write your solution here\n}',
+      python: 'def maxSubArray(nums):\n    # Write your solution here\n    pass',
+      java: 'class Solution {\n    public int maxSubArray(int[] nums) {\n        // Write your solution here\n    }\n}',
+      cpp: 'class Solution {\npublic:\n    int maxSubArray(vector<int>& nums) {\n        // Write your solution here\n    }\n};',
+    },
+    source: 'local',
+    sourceUrl: '',
+    testCases: [],
+  },
+  {
+    id: 'merge-two-sorted-lists',
+    title: 'Merge Two Sorted Lists',
+    difficulty: 'Easy',
+    topic: 'Linked Lists',
+    description:
+      'You are given the heads of two sorted linked lists list1 and list2.\n\nMerge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.\n\nReturn the head of the merged linked list.',
+    examples: [
+      { input: 'list1 = [1,2,4], list2 = [1,3,4]', output: '[1,1,2,3,4,4]', explanation: '' },
+      { input: 'list1 = [], list2 = []', output: '[]', explanation: '' },
+    ],
+    constraints: ['The number of nodes in both lists is in the range [0, 50].', '-100 <= Node.val <= 100'],
+    hints: ['Use a dummy head node.', 'Compare both heads and append the smaller one.'],
+    starterCode: {
+      javascript: 'function mergeTwoLists(list1, list2) {\n  // Write your solution here\n}',
+      python: 'def mergeTwoLists(list1, list2):\n    # Write your solution here\n    pass',
+      java: 'class Solution {\n    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n        // Write your solution here\n    }\n}',
+      cpp: 'class Solution {\npublic:\n    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {\n        // Write your solution here\n    }\n};',
+    },
+    source: 'local',
+    sourceUrl: '',
+    testCases: [],
+  },
+  {
+    id: 'binary-tree-level-order-traversal',
+    title: 'Binary Tree Level Order Traversal',
+    difficulty: 'Medium',
+    topic: 'Trees',
+    description:
+      "Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).",
+    examples: [
+      { input: 'root = [3,9,20,null,null,15,7]', output: '[[3],[9,20],[15,7]]', explanation: '' },
+      { input: 'root = [1]', output: '[[1]]', explanation: '' },
+    ],
+    constraints: ['The number of nodes is in [0, 2000].', '-1000 <= Node.val <= 1000'],
+    hints: ['Use BFS with a queue.', 'Process all nodes at each level before moving to the next.'],
+    starterCode: {
+      javascript: 'function levelOrder(root) {\n  // Write your solution here\n}',
+      python: 'def levelOrder(root):\n    # Write your solution here\n    pass',
+      java: 'class Solution {\n    public List<List<Integer>> levelOrder(TreeNode root) {\n        // Write your solution here\n    }\n}',
+      cpp: 'class Solution {\npublic:\n    vector<vector<int>> levelOrder(TreeNode* root) {\n        // Write your solution here\n    }\n};',
+    },
+    source: 'local',
+    sourceUrl: '',
+    testCases: [],
+  },
+];
